@@ -63,6 +63,7 @@ def compra():
 
     # Process the extracted data as per your requirements
     # ... user = create.user(create,client_cel=mobile, client_name=full_name)
+    print(data)
     return data
 
 @app.route('/bot/atrasar', methods=['POST'] )
