@@ -1,9 +1,12 @@
 from flask import Flask, request
+from manager import create
+
+
 
 app = Flask(__name__)
 
-@app.route('/bot/endpoint', methods=['POST'])
-def endpoint():
+@app.route('/bot/comprar', methods=['POST'])
+def compra():
     data = request.json
 
     # Extract relevant information from the JSON
@@ -59,9 +62,23 @@ def endpoint():
     access_url = data.get('access_url')
 
     # Process the extracted data as per your requirements
-    # ...
+    # ... user = create.user(create,client_cel=mobile, client_name=full_name)
+    return data
 
-    return 'OK'
+@app.route('/bot/atrasar', methods=['POST'] )
+def atrasar():
+    data = request.json
+    mobile = data['Customer']['mobile']
+
+@app.route('/bot/cancelar', methods=['POST'] )
+def cancelar():
+    data = request.json
+
+
+@app.route('/bot/renovar', methods=['POST'] )
+def renovar():
+    data = request.json
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
